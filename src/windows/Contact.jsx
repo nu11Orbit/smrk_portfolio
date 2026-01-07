@@ -1,0 +1,37 @@
+import WinodwWrapper from "#hoc/WinodwWrapper";
+import { WindowControls } from "#components";
+import { socials } from "#constants";
+
+const Contact = () => {
+    return (
+        <>
+            <div id="window-header">
+                <WindowControls target="contact" />
+                <h2>Contact Me</h2>
+            </div>
+
+            <div className="p-5 space-y-5">
+                <img src="/images/smrk.jpg" alt="smrk" className="w-20 rounded-full" />
+
+                <h3>Let's Connect</h3>
+                <p>Got an Idea? A Project to build? Or just wanna talk tech? I'm in.</p>
+                <p><b>Email:</b> smarakgartia2415@gmail.com</p>
+
+                <ul>
+                    {socials.map(({ id, bg, link, icon, text }) => (
+                        <li key={id} style={{ backgroundColor: bg }}>
+                            <a href={link} target="_blank" rel="noopener noreferrer" title={text}>
+                                <img src={icon} alt={text} className="size-5" />
+                                <p>{text}</p>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </>
+    )
+}
+
+const ContactWindow = WinodwWrapper(Contact, "contact");
+
+export default ContactWindow;
